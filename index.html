@@ -27,21 +27,24 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            // Kirim data ke backend Golang di Google Cloud Function menggunakan fetch atau XMLHttpRequest.
-            // Implementasinya tergantung pada bagaimana Anda ingin berinteraksi dengan backend.
-            // Anda perlu mengganti URL dengan URL endpoint GCF Anda.
+            // Ganti URL dengan URL endpoint Google Cloud Function Anda.
             const url = "https://us-central1-ordinal-stone-389604.cloudfunctions.net/petapedia"; // Ganti dengan URL Anda.
-            
+
+            const data = {
+                username,
+                password
+            };
+
             const response = await fetch(url, {
                 method: "POST",
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify(data),
                 headers: {
                     "Content-Type": "application/json"
                 }
             });
 
-            const data = await response.json();
-            message.textContent = data.message;
+            const responseData = await response.json();
+            message.textContent = responseData.message;
         });
     </script>
 </body>
