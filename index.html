@@ -43,13 +43,15 @@
             }
         });
 
-        const responseData = await response.json();
-
-        if (response.ok) {
+        if (response.status === 200) {
             // Login berhasil, tampilkan pesan "HALAMAN DASHBOARD USER".
             message.textContent = "HALAMAN DASHBOARD USER";
+        } else if (response.status === 403) {
+            // Tampilkan pesan "ERROR 403" jika akses dilarang (Forbidden).
+            message.textContent = "ERROR 403";
         } else {
-            // Login gagal, tampilkan pesan kesalahan dari respons.
+            // Tampilkan pesan kesalahan dari respons jika terjadi kesalahan lain.
+            const responseData = await response.json();
             message.textContent = responseData.message;
         }
     });
