@@ -3,7 +3,7 @@ import {setInner,getValue} from "https://jscroot.github.io/element/croot.js";
 import {setCookieWithExpireHour} from "https://jscroot.github.io/cookie/croot.js";
 
 export default function PostSignUp(){
-    let target_url = "https://us-central1-ordinal-stone-389604.cloudfunctions.net/petapedia";
+    let target_url = "https://asia-southeast2-awangga.cloudfunctions.net/petapedia-post";
     let tokenkey = "token";
     let tokenvalue = "8e87pod9d9a8fh9sfd87f9dhsf98dsf98sdf9ssd98f";
     let datainjson = {
@@ -14,6 +14,8 @@ export default function PostSignUp(){
     postWithToken(target_url,tokenkey,tokenvalue,datainjson,responseData);
 
 }
+
+
 
 function responseData(result){
     setInner("pesan",result.message);
