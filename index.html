@@ -1,59 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Form Login</title>
-</head>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
 <body>
-    <h2>Form Login</h2>
-    <form id="login-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    
+  <div class="field">
+        <label class="label" for="username">Username:</label>
+        <div class="control">
+        <input class="input" type="text" id="username" name="username" value="petped">
+        </div>
+</div>
+<div class="field">
+        <label class="label" for="password">Password:</label>
+        <div class="control">
+        <input class="input" type="password" id="password" name="password" value="secret">
+        </div>
+</div>
+<div class="field">
+  <div class="control">
+      <button class="button is-link is-light" type="submit" id="button" onclick="PostSignUp()">Submit</button>
+    </div>
+  </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+  <div class="container">
+     <div class="notification is-primary" id="pesan"></div>
+    </div>
 
-        <button type="submit">Login</button>
-    </form>
+<script type="module" src="./post.js"></script>
 
-    <div id="message"></div>
 </body>
-<script>
-    const form = document.getElementById("login-form");
-    const message = document.getElementById("message");
-
-    form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        // Ganti URL dengan URL endpoint Google Cloud Function Anda.
-        const url = "https://us-central1-ordinal-stone-389604.cloudfunctions.net/petapedia"; // Ganti dengan URL Anda.
-
-        const data = {
-            username,
-            password
-        };
-
-        const response = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        if (response.status === 200) {
-            // Login berhasil, tampilkan pesan "HALAMAN DASHBOARD USER".
-            message.textContent = "HALAMAN DASHBOARD USER";
-        } else if (response.status === 403) {
-            // Tampilkan pesan "ERROR 403" jika akses dilarang (Forbidden).
-            message.textContent = "ERROR 403";
-        } else {
-            // Tampilkan pesan kesalahan dari respons jika terjadi kesalahan lain.
-            const responseData = await response.json();
-            message.textContent = responseData.message;
-        }
-    });
-</script>
 </html>
