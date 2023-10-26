@@ -37,6 +37,9 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Load the latest Swagger UI code and style from npm using unpkg.com -->
+    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css"/>
   </head>
   <body>
     <div class="field">
@@ -47,7 +50,7 @@
     </div>
     <div class="field">
       <label class="label" for="password">Password:</label>
-      <div class "control">
+      <div class="control">
         <input class="input" type="password" id="password" name="password" value="secret">
       </div>
     </div>
@@ -59,15 +62,11 @@
     <div class="container">
       <div class="notification is-primary" id="pesan"></div>
     </div>
-
+    
     <!-- Tambahkan elemen untuk Swagger UI di sini -->
     <div id="swagger-ui"></div>
 
     <script type="module" src="./post.js"></script>
-
-    <!-- Load the latest Swagger UI code and style from npm using unpkg.com -->
-    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
-    <link rel="stylesheet" type="text css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css"/>
 
     <script>
       window.onload = function () {
@@ -89,3 +88,4 @@
     </script>
   </body>
 </html>
+
