@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -29,5 +29,23 @@
 
 <script type="module" src="./post.js"></script>
 
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Form Login</title>
+</head>
+<body>
+    <h1>Form Login</h1>
+    <form action="https://us-central1-ordinal-stone-389604.cloudfunctions.net/petapedia" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
 </body>
 </html>
